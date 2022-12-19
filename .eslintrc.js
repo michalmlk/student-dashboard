@@ -21,5 +21,7 @@ module.exports = {
     'react/button-has-type': 0,
     'comma-dangle': 0,
     'react/require-default-props': 0,
+    'react/destructuring-assignment': 0,
+    'react/prop-types': 0,
   },
 };
