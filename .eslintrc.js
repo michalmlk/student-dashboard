@@ -23,5 +23,6 @@ module.exports = {
     'react/require-default-props': 0,
     'react/destructuring-assignment': 0,
     'react/prop-types': 0,
+    'react/jsx-props-no-spreading': 0,
   },
 };
