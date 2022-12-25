@@ -27,5 +27,6 @@ module.exports = {
     'linebreak-style': 0,
     'react/jsx-tag-spacing': 0,
     'object-curly-newline': 0,
+    'react/jsx-boolean-value': 0,
   },
 };
