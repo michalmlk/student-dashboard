@@ -8,7 +8,8 @@ import {
 } from './ListOfUsersItem.styles';
 
 const ListOfUsersItem = ({
-  userData: { name, attendance = '0%', average },
+  deleteUser,
+  userData: { id, name, attendance = '0%', average },
 }) => (
   <Wrapper>
     <Container>
@@ -22,13 +23,14 @@ const ListOfUsersItem = ({
       </StyledDetails>
     </Container>
     <Container>
-      <Button content="X" />
+      <Button content="X" onClick={() => deleteUser(id)} />
     </Container>
   </Wrapper>
 );
 
 ListOfUsersItem.propTypes = {
   userData: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     average: PropTypes.string.isRequired,
     attendance: PropTypes.string,

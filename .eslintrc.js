@@ -24,5 +24,8 @@ module.exports = {
     'react/destructuring-assignment': 0,
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
+    'linebreak-style': 0,
+    'react/jsx-tag-spacing': 0,
+    'object-curly-newline': 0,
   },
 };

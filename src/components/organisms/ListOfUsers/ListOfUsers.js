@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
-import { users } from '../../../data/users';
+import { users as usersData } from '../../../data/users';
 import ListOfUsersItem from '../../molecules/ListOfUsersItem/ListOfUsersItem';
 
 const Wrapper = styled.div`
@@ -31,14 +32,49 @@ const StyledList = styled.ul`
     margin: 0 auto 30px 20px;
   }
 `;
+// eslint-disable-next-line no-unused-vars
+const mockAPI = (success) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (usersData) {
+        resolve([...usersData]);
+      } else {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({ message: 'Error' });
+      }
+    }, 2000);
+  });
+};
 
 const ListOfUsers = () => {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    mockAPI()
+      .then((data) => {
+        setIsLoading(false);
+        setUsers(data);
+      })
+      .catch((err) => console.log(`Failed to fetch users ${err.message}`));
+  }, []);
+
+  const deleteUser = (id) => {
+    const filteredUsers = users.filter((user) => user.id !== id);
+    setUsers(filteredUsers);
+  };
+
   return (
     <Wrapper>
       <StyledList>
-        <h1>Students</h1>
+        <h1>{isLoading ? 'Loading...' : 'Students'}</h1>
         {users.map((userData) => (
-          <ListOfUsersItem key={uuidv4()} userData={userData} />
+          <ListOfUsersItem
+            key={uuidv4()}
+            userData={userData}
+            deleteUser={deleteUser}
+          />
         ))}
       </StyledList>
     </Wrapper>
