@@ -1,4 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
 import { theme } from '../assets/styles/theme';
 import ListOfUsers from '../components/organisms/ListOfUsers/ListOfUsers';
@@ -15,14 +16,17 @@ const Wrapper = styled.div`
 
 const Root = () => {
   return (
-    <>
+    <Router>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <ListOfUsers />
+          <Routes>
+            <Route path="/home" exact element={<ListOfUsers />} />
+            <Route path="/add-user" element={<h1>AAAssssss</h1>} />
+          </Routes>
         </Wrapper>
       </ThemeProvider>
-    </>
+    </Router>
   );
 };
 
