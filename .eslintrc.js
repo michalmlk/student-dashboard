@@ -28,5 +28,8 @@ module.exports = {
     'react/jsx-tag-spacing': 0,
     'object-curly-newline': 0,
     'react/jsx-boolean-value': 0,
+    'no-nested-ternary': 0,
+    'implicit-arrow-linebreak': 0,
+    'no-confusing-arrow': 0,
   },
 };
