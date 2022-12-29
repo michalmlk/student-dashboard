@@ -18,7 +18,8 @@ export const StyledAverage = styled.div`
   align-items: center;
   font-size: 1.4rem;
   color: #fff;
-  background-color: red;
+  background-color: ${(props) =>
+    props.avg >= 4 ? '#30c96e' : props.avg < 3 ? '#db1d49' : '#f5da42'};
   width: 40px;
   height: 40px;
   border-radius: 5px;
