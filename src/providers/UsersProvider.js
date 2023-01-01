@@ -22,7 +22,6 @@ const UsersProvider = ({ children }) => {
       average: values.average,
     };
     setUsers([newUser, ...users]);
-    console.log(users);
   };
   return (
     <UsersContext.Provider
