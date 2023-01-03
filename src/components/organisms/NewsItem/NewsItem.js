@@ -27,7 +27,7 @@ const NewsBody = styled(ViewWrapper)`
 `;
 
 const TitleWrapper = styled.div`
-  h1 {
+  h3 {
     margin-bottom: 0;
   }
   p {
@@ -41,7 +41,7 @@ const NewsItem = ({ title, content, category }) => {
   return (
     <NewsBody>
       <TitleWrapper>
-        <h1>{title}</h1>
+        <h3>{title}</h3>
         <p>{category}</p>
       </TitleWrapper>
       <p>{content}</p>

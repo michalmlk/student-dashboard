@@ -3,16 +3,17 @@ import axios from 'axios';
 import { NewsWrapper, NewsContainer } from './NewsSection.styles';
 import NewsItem from '../../organisms/NewsItem/NewsItem';
 
-const API_TOKEN = 'bf2adce17cff6361f116534973858d';
-
 const NewsSection = () => {
   const [news, setNews] = useState([]);
+  const [error, setError] = useState();
+
   useEffect(() => {
-    axios
-      .post(
-        'https://graphql.datocms.com/',
-        {
-          query: `
+    setTimeout(() => {
+      axios
+        .post(
+          'https://graphql.datocms.com/',
+          {
+            query: `
           {
             allArticles {
                 id
@@ -27,29 +28,37 @@ const NewsSection = () => {
             }
           }
         `,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${API_TOKEN}`,
           },
-        }
-      )
-      .then(({ data: { data } }) => setNews(data.allArticles))
-      .catch((err) => console.log(err));
-  });
+          {
+            headers: {
+              authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+            },
+          }
+        )
+        .then(({ data: { data } }) => setNews(data.allArticles))
+        .catch(() => setError("Sorry, we couldn't load data."));
+    }, 500);
+  }, []);
 
   return (
     <NewsWrapper>
       <h1>News section</h1>
       <NewsContainer>
         {news.length > 0 ? (
-          news.map(({ title, category, content }) => {
+          news.map(({ title, category, content, id }) => {
             return (
-              <NewsItem title={title} category={category} content={content} />
+              <NewsItem
+                key={id}
+                title={title}
+                category={category}
+                content={content}
+              />
             );
           })
-        ) : (
+        ) : !error ? (
           <h1>Loading...</h1>
+        ) : (
+          <h1>{error}</h1>
         )}
       </NewsContainer>
     </NewsWrapper>

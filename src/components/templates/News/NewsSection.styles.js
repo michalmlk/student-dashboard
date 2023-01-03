@@ -24,6 +24,12 @@ export const NewsContainer = styled.div`
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
+  color: ${({ theme }) => theme.colors.baseText};
+
+  h3 {
+    color: ${({ theme }) => theme.colors.baseText};
+    font-size: 28px;
+  }
 
   ::-webkit-scrollbar {
     background-color: transparent;
