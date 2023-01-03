@@ -31,5 +31,6 @@ module.exports = {
     'no-nested-ternary': 0,
     'implicit-arrow-linebreak': 0,
     'no-confusing-arrow': 0,
+    'react/jsx-curly-spacing': 1,
   },
 };

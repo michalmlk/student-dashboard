@@ -7,5 +7,6 @@ export const theme = {
     yellow: '#FFFBEB',
     white: '#ffffff',
     accent: '#0f0',
+    darkestBlueHover: '#141f3b',
   },
 };

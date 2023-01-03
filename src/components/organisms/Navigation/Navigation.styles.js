@@ -6,6 +6,9 @@ export const StyledNavigation = styled.div`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.darkerBlue};
   padding: 2rem;
+  grid-row: 1 / 3;
+  grid-column: 1/1;
+  border-right: 1px solid ${({ theme }) => theme.colors.darkestBlue};
   h1 {
     font-size: 28px;
     color: ${({ theme }) => theme.colors.white};

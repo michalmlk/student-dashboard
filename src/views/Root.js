@@ -1,5 +1,10 @@
 import styled, { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
 import { theme } from '../assets/styles/theme';
 import Dashboard from './Dashboard';
@@ -13,7 +18,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 85px);
   margin: 0 !important;
 `;
 
@@ -26,7 +31,8 @@ const Root = () => {
           <MainTemplate>
             <Wrapper>
               <Routes>
-                <Route path="/home" exact element={<Dashboard />} />
+                <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/home" element={<Dashboard />} />
                 <Route path="/add-user" element={<AddUser />} />
               </Routes>
             </Wrapper>

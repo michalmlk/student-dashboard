@@ -8,4 +8,5 @@ export const ViewWrapper = styled.div`
   width: 100%;
   padding: 40px 50px;
   border-radius: 25px;
+  max-height: 100vh;
 `;
