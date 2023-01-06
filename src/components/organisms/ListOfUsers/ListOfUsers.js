@@ -56,7 +56,7 @@ const StyledList = styled.ul`
   }
 `;
 
-const ListOfUsers = ({ users }) => {
+const ListOfUsers = ({ users = [] }) => {
   return (
     <Wrapper>
       <h1>{users.length > 0 ? 'Students' : 'List is empty'}</h1>

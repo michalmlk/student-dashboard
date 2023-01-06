@@ -10,7 +10,6 @@ import { theme } from '../assets/styles/theme';
 import Dashboard from './Dashboard';
 import AddUser from './AddUser';
 import MainTemplate from '../components/templates/MainTemplate/MainTemplate';
-import UsersProvider from '../providers/UsersProvider';
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.darkestBlue};
@@ -27,17 +26,15 @@ const Root = () => {
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <UsersProvider>
-          <MainTemplate>
-            <Wrapper>
-              <Routes>
-                <Route path="/" element={<Navigate to="/home" />} />
-                <Route path="/home" element={<Dashboard />} />
-                <Route path="/add-user" element={<AddUser />} />
-              </Routes>
-            </Wrapper>
-          </MainTemplate>
-        </UsersProvider>
+        <MainTemplate>
+          <Wrapper>
+            <Routes>
+              <Route path="/" element={<Navigate to="/group" />} />
+              <Route path="/group/:id" element={<Dashboard />} />
+              <Route path="/add-user" element={<AddUser />} />
+            </Routes>
+          </Wrapper>
+        </MainTemplate>
       </ThemeProvider>
     </Router>
   );

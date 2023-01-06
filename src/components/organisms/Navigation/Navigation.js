@@ -9,7 +9,7 @@ const Navigation = () => {
     <StyledNavigation>
       <h1>My dashboard</h1>
       <StyledList>
-        <StyledNavLink to="/home">Home</StyledNavLink>
+        <StyledNavLink to="/group">Home</StyledNavLink>
         <StyledNavLink to="/add-user">Add user</StyledNavLink>
       </StyledList>
     </StyledNavigation>
